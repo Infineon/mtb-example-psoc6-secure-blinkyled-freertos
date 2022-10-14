@@ -4,11 +4,11 @@
 * Description: This is the source code for the PSoC 6 MCU Secure Blinky FreeRTOS
 *              Example for ModusToolbox.
 *
-* Related Document: See Readme.md
+* Related Document: See README.md
 *
 *
 *******************************************************************************
-* Copyright 2020-2021, Cypress Semiconductor Corporation (an Infineon company) or
+* Copyright 2020-2022, Cypress Semiconductor Corporation (an Infineon company) or
 * an affiliate of Cypress Semiconductor Corporation.  All rights reserved.
 *
 * This software, including source code, documentation and related
@@ -83,9 +83,9 @@ void counter_task( void * arg );
 * Function Name: main
 ********************************************************************************
 * Summary:
-* This is the main function for CM4 CPU. It does...
-*    1. Creates FreeRTOS tasks
-*    2. Starts FreeRTOS scheduler
+*  Entry function for the application.
+*  This function initializes the BSP, UART port for debugging,
+*  and starts the RTOS scheduler.
 *
 * Parameters:
 *  void
@@ -109,7 +109,7 @@ int main(void)
     }
 
     /* Enable global interrupts */
-         __enable_irq();
+    __enable_irq();
 
     /* Initialize retarget-io to use the debug UART port */
     cy_retarget_io_init(CYBSP_DEBUG_UART_TX, CYBSP_DEBUG_UART_RX, CY_RETARGET_IO_BAUDRATE);
